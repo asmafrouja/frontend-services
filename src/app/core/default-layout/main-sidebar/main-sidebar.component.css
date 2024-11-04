@@ -1,0 +1,83 @@
+/* Style de la barre latérale principale */
+.main-sidebar {
+    background-image: url('src/assets/dist/img/survey.jpg'); /* Ajouter l'image de fond */
+    background-size: cover; /* Redimensionner l'image pour remplir la zone */
+    background-position: center; /* Positionner l'image au centre */
+}
+
+/* Autres styles inchangés */
+
+/* Style du logo de la marque */
+.brand-link {
+    color: #ffffff; /* Couleur du texte */
+}
+
+/* Style de l'image de la marque */
+.brand-image {
+    width: 40px; /* Largeur de l'image */
+    height: 40px; /* Hauteur de l'image */
+}
+
+/* Style du texte de la marque */
+.brand-text {
+    font-size: 1.2rem; /* Taille du texte */
+}
+
+/* Style de la barre de recherche dans la barre latérale */
+.form-control-sidebar {
+    background-color: #495057; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+}
+
+/* Style du bouton de recherche dans la barre latérale */
+.btn-sidebar {
+    background-color: #495057; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+}
+
+/* Style des liens de navigation dans la barre latérale */
+.nav-sidebar .nav-link {
+    color: #ffffff; /* Couleur du texte */
+    font-size: 16px; /* Taille de la police */
+    font-weight: 400; /* Poids de la police */
+}
+
+/* Style des icônes de navigation dans la barre latérale */
+.nav-sidebar .nav-link i {
+    color: #6c757d; /* Couleur de l'icône */
+}
+
+/* Style des liens de navigation actifs dans la barre latérale */
+.nav-sidebar .nav-link.active {
+    background-color: #6c757d; /* Couleur de fond */
+}
+
+/* Style des badges dans la barre latérale */
+.nav-sidebar .badge {
+    background-color: #dc3545; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+}
+
+/* Effet de survol sur les liens de navigation */
+.nav-sidebar .nav-link:hover {
+    background-color: #495057; /* Couleur de fond au survol */
+}
+
+/* Ajout de la famille de police pour l'ensemble du document */
+body {
+    font-family: 'Arial', sans-serif; /* Exemple de famille de police */
+}
+
+/* Style du texte de la marque avec une nouvelle famille de police */
+.brand-text {
+    font-size: 1.2rem; /* Taille du texte */
+    font-family: 'Helvetica', sans-serif; /* Exemple de famille de police différente */
+}
+
+/* Style des liens de navigation avec une autre famille de police */
+.nav-sidebar .nav-link {
+    color: #ffffff; /* Couleur du texte */
+    font-size: 16px; /* Taille de la police */
+    font-weight: 400; /* Poids de la police */
+    font-family: 'Verdana', sans-serif; /* Exemple d'une autre famille de police */
+}

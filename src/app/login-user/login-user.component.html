@@ -1,0 +1,52 @@
+
+<div class="container">
+    <form autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+        <!-- Email input -->
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" class="form-control"
+                ngModel name="email" #email="ngModel"
+                required 
+                minlength="5"
+                maxlength="20"
+                pattern="">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors && email.errors['required']">required</div>
+                <div *ngIf="email.errors && email.errors['minlength']">minimum 5 characters</div>
+                <div *ngIf="email.errors && email.errors['maxlength']">maximum 20 characters</div>
+                <div *ngIf="email.errors && email.errors['pattern']">pattern</div>
+            </div>
+        </div>
+        <!-- Password input -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control"
+                ngModel name="password" #password="ngModel"
+                required 
+                minlength="5"
+                maxlength="20"
+                pattern="">
+            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                <div *ngIf="password.errors && password.errors['required']"> Password required</div>
+             <div *ngIf="password.errors && password.errors['minlength']">minimum 5 characters</div>
+             <div *ngIf="password.errors && password.errors['maxlength']">maximum 20 characters</div>
+             <div *ngIf="password.errors && password.errors['pattern']">pattern</div>
+            </div>
+        </div>
+        <!-- Confirm Password input -->
+        <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
+                #confirmPassword="ngModel" [(ngModel)]="confirmPass" pattern="{{login.password}}" required>
+            <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
+                <div *ngIf="confirmPassword.errors && confirmPassword.errors['required']">Confirm password required</div>
+            </div>
+        </div>         
+        <br>
+        <p class="mb-1">
+            <a  routerLink="/createaccount" class="text-center">Create account</a>
+          </p>
+        <!-- Submit button -->
+        <button class="btn btn-danger" type="submit">Send</button> 
+    </form>
+</div>

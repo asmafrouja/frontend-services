@@ -1,0 +1,126 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Users Managment</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">users</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Users Table</h3>
+           
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table
+            *ngIf="allUsers.length > 0"
+              datatable
+              class="row-border hover table table-hover text-nowrap"
+            >
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Staus</th>
+                  <th>Login Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of allUsers">
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>
+                    <div class="custom-control custom-switch">
+                      <input
+                        type="checkbox"
+                        [checked]="user.userStatus == 1"
+                        class="custom-control-input"
+                        (change)="updateStatus(user)"
+                        [id]="user.username"
+                      />
+                      <label
+                        class="custom-control-label"
+                        *ngIf="user.userStatus == 1"
+                        [for]="user.username"
+                        >User is active</label
+                      >
+                      <label
+                        class="custom-control-label"
+                        *ngIf="user.userStatus == 0"
+                        [for]="user.username"
+                        >User is in active</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="custom-control custom-switch">
+                      <input
+                        type="checkbox"
+                        [checked]="user.loginStatus == 1"
+                        class="custom-control-input"
+                        (change)="updateLoginStatus(user)"
+                        [id]="user.username+'1'"
+                      />
+                      <label
+                        class="custom-control-label"
+                        *ngIf="user.loginStatus == 1"
+                        [for]="user.username+'1'"
+                        >User is logged In</label
+                      >
+                      <label
+                        class="custom-control-label"
+                        *ngIf="user.loginStatus == 0"
+                        [for]="user.username+'1'"
+                        >User is logged Out</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <i class="fas fa-trash" (click)="delete(user.id)"></i>
+                    <i
+                      class="fas fa-pen"
+                      style="margin-left: 15px"
+                      (click)="read(user)"
+                      data-toggle="modal"
+                      data-target="#user-modal"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+

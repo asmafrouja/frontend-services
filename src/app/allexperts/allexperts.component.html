@@ -1,0 +1,201 @@
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p>
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <a routerLink="/addexpert" style="float: right;" class="btn btn-primary">Add Expert</a>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Email</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>FEE</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Email</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>FEE</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                      
+                        <tr *ngFor="let expert of experts;index as i">
+                            <td>{{ expert.name }}</td>
+                            <td>{{ expert.position }}</td>
+                            <td>{{ expert.email }}</td>
+                            <td>{{ expert.office}}</td>
+                            <td>{{ expert.age }}</td>
+                            <td>{{ expert.start_date }}</td>
+                            <td>{{ expert.FEE }}</td>
+                            <td>{{ expert.phone }}</td>
+                            <td> 
+                            
+                              <button class="btn btn-success" (click)="getdata(expert)" data-toggle="modal" data-target="#exampleModal">Update</button>
+                              <button class="btn btn-info" (click)="details(expert.id)">Details</button>
+                              <button class="btn btn-danger" (click)="delete(expert.id,i)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  
+  </div>
+  <!-- /.container-fluid -->
+  
+  <!-- End of Main Content -->
+  <!-- Footer -->
+  
+  <!-- End of Footer -->
+  
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" routerLink="/addexpert">Logout</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Expert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- form Update start here -->
+                <form #f="ngForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" placeholder="Name" required name="name" #name="ngModel" minlength="2" maxlength="20" [(ngModel)]="dataExpert.name">
+                        <div class="alert alert-danger" *ngIf="name.errors?.['required'] && name.touched">
+                            Name is required
+                        </div>
+                        <div class="alert alert-danger" *ngIf="name.errors?.['minlength'] && name.touched">
+                            Name must be minimum 2 characters
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <input type="text" class="form-control" placeholder="Position" required name="position" #position="ngModel" [(ngModel)]="dataExpert.position">
+                        <div class="alert alert-danger" *ngIf="position.errors?.['required'] && position.touched">
+                            Position is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Email" required email name="email" #email="ngModel" [(ngModel)]="dataExpert.email">
+                        <div class="alert alert-danger" *ngIf="email.errors?.['required'] && email.touched">
+                            Email is required
+                        </div>
+                        <div class="alert alert-danger" *ngIf="email.errors?.['email'] && email.touched">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="office">Office</label>
+                        <input type="text" class="form-control" placeholder="Office" required name="office" #office="ngModel" minlength="2" maxlength="25" [(ngModel)]="dataExpert.office">
+                        <div class="alert alert-danger" *ngIf="office.errors?.['required'] && office.touched">
+                            Office is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" placeholder="Age" required name="age" #age="ngModel" [(ngModel)]="dataExpert.age">
+                        <div class="alert alert-danger" *ngIf="age.errors?.['required'] && age.touched">
+                            Age is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" placeholder="Start Date" required name="start_date" #start_date="ngModel" [(ngModel)]="dataExpert.start_date">
+                        <div class="alert alert-danger" *ngIf="start_date.errors?.['required'] && start_date.touched">
+                            Start date is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="FEE">FEE</label>
+                        <input type="number" class="form-control" placeholder="FEE" required name="FEE" #FEE="ngModel" [(ngModel)]="dataExpert.FEE">
+                        <div class="alert alert-danger" *ngIf="FEE.errors?.['required'] && FEE.touched">
+                            FEE is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="number" class="form-control" placeholder="Phone" required name="phone" #phone="ngModel" [(ngModel)]="dataExpert.phone">
+                        <div class="alert alert-danger" *ngIf="phone.errors?.['required'] && phone.touched">
+                            Phone is required
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="Textarea1">Example textarea</label>
+                        <textarea class="form-control" rows="3" required name="Textarea1" #Textarea1="ngModel" [(ngModel)]="dataExpert.Textarea1"></textarea>
+                    </div>
+  
+                    <button type="submit" class="btn btn-primary" (click)="update()">Update Expert</button>
+                </form>
+                <!-- form Update end here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  

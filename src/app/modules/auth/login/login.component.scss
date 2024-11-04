@@ -1,0 +1,71 @@
+
+
+/* Login page styles */
+.login-page {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 350px;
+}
+
+/* Card styles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styles */
+.login-logo a {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Login card body styles */
+.login-card-body {
+    padding: 30px;
+}
+
+/* Login box message styles */
+.login-box-msg {
+    font-size: 18px;
+}
+
+/* Form control styles */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Input group text styles */
+.input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.btn-google {
+    background-color: #dd4b39;
+    border-color: #dd4b39;
+}
+
+/* Button hover styles */
+.btn-primary:hover,
+.btn-facebook:hover,
+.btn-google:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

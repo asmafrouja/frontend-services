@@ -1,0 +1,14 @@
+.testimonial{
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* Ajoutez ces styles à votre fichier CSS pour styliser les éléments en bleu */
+
+.bg-blue {
+    background-color: #0c79ed !important;
+    color: white !important;
+}
+
+.text-blue {
+    color:  #0c79ed !important;
+}
